@@ -1,55 +1,36 @@
 var currentDate = moment().format("MM-DD-YYYY");
 var hours = getTime()
 var relativeTime = []
-
+var testNum = 11
 function getTime() {
     var now = new Date();
     return (now.getHours())
-            // ((now.getMinutes() < 10)
-            //      ? (now.getMinutes())
-            //      : (now.getMinutes())));
-    
 }
 console.log(getTime());
 
 console.log(hours)
 
-
+//function to see time relative to calendar hours and adding color code
+function timeOfDay () {
 for (i = 0; i < 9; i++) {
-    if (hours < (i + 9)) 
-    relativeTime[i] = "future";
-    else if (hours = (i + 9))
-    relativeTime[i] = "present";
-    else (hours > (i + 9))
-    relativeTime[i] = "past";
+    if ((i + 9) > testNum) {
+        document.getElementById(i).classList.add("bg-success");
+    }
+    else if ((i + 9) === testNum) {
+        document.getElementById(i).classList.add("bg-danger");
+    }
+    else if ((i + 9) < testNum) {
+        document.getElementById(i).classList.add('bg-primary');
+    }
+    }
 }
-console.log(relativeTime)
-console.log(currentDate)
+console.log(testNum)
 document.getElementById("dateTime").innerHTML = currentDate
+timeOfDay();
+console.log(relativeTime)
 
+timeOfDay();
 
-
-// need to add background color based on the relative time of day
-var colorCode = function () {
-    for (i = 0; i < 9; i++) {
-        if (relativeTime[i] = "past") {
-        var textBox = document.getElementById[i];
-        textBox.classList.add(".bg-primary");
-    }
-        else if (relativeTime[i] = "present") {
-        var textBox = document.getElementById[i];
-        textBox.classList.add(".bg-danger");
-    }
-        else {
-        var textBox = document.getElementById[i];
-        textBox.classList.add(".bg-danger");
-    }
-    }
-}
-
-// need to assign variable to each text box
-// for (i = 0; i < 9; i++) {
-//     var timeSlot = document.createElement('div');
-//     timeSlot.className = "d-flex time-block flex-nowrap";
-
-// }
+console.log(i + 9)
+console.log(relativeTime)
+//setup local storage on button click
