@@ -40,10 +40,8 @@ for (i = 0; i < 9; i++) {
 
 button0.addEventListener('click', function(event) {
     event.preventDefault();
-    
     tasks[0] = document.getElementById(0).value;
     // set new submission to local storage 
-    
     localStorage.setItem("key", JSON.stringify(tasks));
     var taskData = localStorage.getItem("key")
     console.log(JSON.parse(taskData))
@@ -123,11 +121,14 @@ button8.addEventListener('click', function(event) {
 }
 );
 
+//kept storage arrays not undefined
 for (i = 0; i < 9; i++) {
     if (tasks[i] = undefined) {
         tasks[i] = ""
     } 
 }
+
+//loaded tasks via local storage
 var loadTasks = function () {
     for (i = 0; i < 9; i++) {
     saveTasks1 = document.getElementById(i).textContent
